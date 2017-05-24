@@ -69,27 +69,19 @@ class ChatApplicationServer {
    	}
 
    	private void run(int port) {
-
-      		connections = new ArrayList<Chatter>();
-      
-      		try {
-        
-         		ServerSocket welcomeSocket = new ServerSocket(port);
-         
-         		while (true) {
-            			Socket individualSocket = welcomeSocket.accept();
-  
-            			Chatter chatter = new Chatter(individualSocket);
-			
+		connections = new ArrayList<Chatter>();
+		try {
+			ServerSocket welcomeSocket = new ServerSocket(port);
+			while (true) {
+				Socket individualSocket = welcomeSocket.accept();
+				Chatter chatter = new Chatter(individualSocket);
 				connections.add(chatter);
-            
-            			Thread thread = new Thread(chatter);
-         
-            			thread.start();
-        		 }
-     		 } catch (Exception e) {
-        		 System.out.println(e);
-      		}
+				Thread thread = new Thread(chatter);
+				thread.start();
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
    	}
    
    	/********************************************************
@@ -99,9 +91,9 @@ class ChatApplicationServer {
 	   
 		private String name;
 		private Socket socket;
-      		private DataInputStream in;
-      		private DataOutputStream out;
-      		private Chatter connectedChatter;
+		private DataInputStream in;
+		private DataOutputStream out;
+		private Chatter connectedChatter;
 	  
 	  	private LinkedList<String> messagesToReceive;
 	   
@@ -109,53 +101,53 @@ class ChatApplicationServer {
          		this.socket = socket;
          		in = new DataInputStream(socket.getInputStream());
          		out = new DataOutputStream(socket.getOutputStream());
-			messagesToReceive = new LinkedList<String>();
+				messagesToReceive = new LinkedList<String>();
      		}
 
       	public synchronized void send(String message) {
          	try {
-            		out.writeUTF(message);
+            	out.writeUTF(message);
          	} catch (Exception e) {
-            		System.out.println(e);
+            	System.out.println(e);
          	}
       	}
 	  
-	public synchronized void receive(String message) {
-		messagesToReceive.add(message);
-	}
-	  
-	public synchronized String getMessageFromReceive() {
-		if (messagesToReceive.isEmpty()) {
-			return null;
+		public synchronized void receive(String message) {
+			messagesToReceive.add(message);
 		}
-		String s = messagesToReceive.getFirst();
-		messagesToReceive.removeFirst();
-		return s;
-	}
+	  
+		public synchronized String getMessageFromReceive() {
+			if (messagesToReceive.isEmpty()) {
+				return null;
+			}
+			String s = messagesToReceive.getFirst();
+			messagesToReceive.removeFirst();
+			return s;
+		}
 
       	private synchronized void setName(String newName) {
-		name = newName;
+			name = newName;
       	}
 	  
-	private synchronized void removeConnection() {
-		connections.remove(this);
-	}
+		private synchronized void removeConnection() {
+			connections.remove(this);
+		}
 
         private synchronized String getConnectionsListString() {
-		String s = "";
-		for (Chatter chatter: connections) {
-			if (!chatter.toString().equals(name)) {
-				s += (chatter.toString() + ":");
-			}
+			String s = "";
+			for (Chatter chatter: connections) {
+				if (!chatter.toString().equals(name)) {
+					s += (chatter.toString() + ":");
+				}
          	}
          	return s;
       	}
 
       	private synchronized Chatter getConnectChatter(String name) {
          	for (Chatter chatter: connections) {
-            		if (chatter.toString().equals(name)) {
-               			return chatter;
-            		}
+            	if (chatter.toString().equals(name)) {
+               		return chatter;
+            	}
          	}
          	return null;
       	}
@@ -166,60 +158,59 @@ class ChatApplicationServer {
          	String message = "";
 		   
          	try {
-            		while(!header.equals("DISCONNECT")) {
-               			header = in.readUTF();
-               			message = in.readUTF();
-               
-               			switch (header) {
-                  		case "NAME":
-                     			setName(message);
-					System.out.println("New Username: " + message);
-					send("ACK:NAME");
-                     			break;
-                  		case "GETLIST":
-                     			String s = getConnectionsListString();
-                     			System.out.println(s);
-					send("ACK:LIST");
-                     			send(s);
-                    			break;
-                  		case "CONNECT":
-                     			connectedChatter = getConnectChatter(message);
-                     			if (connectedChatter == null) {
-                        			send("NAK:CONNECT");
-                     			} else {
-                        			send("ACK:CONNECT");
-                     			}
-                     			break;
-                  		case "MESSAGE":
-                     			if (connectedChatter != null) {
-						send("ACK:MESSAGE");
-						connectedChatter.receive(name + ":" + message);
-                     			} else {
-                        			send("NAK:MESSAGE");
-                     			}
-                    			break;
-                  		case "DISCONNECT":
-				     	send("ACK:DISCONNECT");
-                     			in.close();
-                     			out.close();
-                     			socket.close();
-					removeConnection();
-                    			break;
-				case "GETINPUT":
-					String str = getMessageFromReceive();
-					if (str == null) {
-						send("NAK:GETINPUT");
-					} else {
-						send("ACK:GETINPUT");
-						send(str.split(":")[0]);
-						send(str.substring(str.indexOf(":") + 1));
+            	while(!header.equals("DISCONNECT")) {
+					header = in.readUTF();
+					message = in.readUTF();
+					switch (header) {
+						case "NAME":
+							setName(message);
+							System.out.println("New Username: " + message);
+							send("ACK:NAME");
+							break;
+						case "GETLIST":
+							String s = getConnectionsListString();
+							System.out.println(s);
+							send("ACK:LIST");
+							send(s);
+							break;
+						case "CONNECT":
+							connectedChatter = getConnectChatter(message);
+							if (connectedChatter == null) {
+								send("NAK:CONNECT");
+							} else {
+								send("ACK:CONNECT");
+							}
+							break;
+						case "MESSAGE":
+							if (connectedChatter != null) {
+								send("ACK:MESSAGE");
+								connectedChatter.receive(name + ":" + message);
+							} else {
+								send("NAK:MESSAGE");
+							}
+							break;
+						case "DISCONNECT":
+							send("ACK:DISCONNECT");
+							in.close();
+							out.close();
+							socket.close();
+							removeConnection();
+							break;
+						case "GETINPUT":
+							String str = getMessageFromReceive();
+							if (str == null) {
+								send("NAK:GETINPUT");
+							} else {
+								send("ACK:GETINPUT");
+								send(str.split(":")[0]);
+								send(str.substring(str.indexOf(":") + 1));
+							}
+							break;
+						default:
+							send("NAK:ERROR");
 					}
-					break;
-                  		default:
-                     			send("NAK:ERROR");
-               			}
                
-            		}
+				}
          	} catch (Exception e) {
            		 System.out.println(e);
          	}
@@ -229,7 +220,7 @@ class ChatApplicationServer {
          	return name;
       	}
 	
-   }
+	}	
 }
 
 
