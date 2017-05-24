@@ -16,7 +16,7 @@
 *    NOTE: You must connect each client to the other for it to send 
 *          messages, you can't just connect one side.
 *    NOTE: The server must be run on LinuxLab06 in order to work (unless you
-*          change the setting below on line 483) 
+*          change the setting below on line 474) 
 ****************************************************************************/
 
 import java.awt.*;
