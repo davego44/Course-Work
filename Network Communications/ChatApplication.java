@@ -8,7 +8,7 @@
 *    This file contains a chat application server and client. Run the server 
 *    with port 7000 by typing in "java ChatApplication server 7000" on the
 *    commandline. To run the client with port 6800, type in "java 
-*	 ChatApplication client 6800" on the commandline. The chat application
+*    ChatApplication client 6800" on the commandline. The chat application
 *    displays a basic GUI with options to have a username, connect to the
 *    server, connect to another client, and disconnect. Try it out! It is
 *    a lot of fun! 
@@ -62,172 +62,172 @@ public class ChatApplication {
 ************************************************************************/
 class ChatApplicationServer {
 	
-   private java.util.List<Chatter> connections;
+	private java.util.List<Chatter> connections;
    
-   public ChatApplicationServer(int port) {
-	   run(port);
-   }
+   	public ChatApplicationServer(int port) {
+	   	run(port);
+   	}
 
-   private void run(int port) {
+   	private void run(int port) {
 
-      connections = new ArrayList<Chatter>();
+      		connections = new ArrayList<Chatter>();
       
-      try {
+      		try {
         
-         ServerSocket welcomeSocket = new ServerSocket(port);
+         		ServerSocket welcomeSocket = new ServerSocket(port);
          
-         while (true) {
-            Socket individualSocket = welcomeSocket.accept();
+         		while (true) {
+            			Socket individualSocket = welcomeSocket.accept();
   
-            Chatter chatter = new Chatter(individualSocket);
+            			Chatter chatter = new Chatter(individualSocket);
 			
-			connections.add(chatter);
+				connections.add(chatter);
             
-            Thread thread = new Thread(chatter);
+            			Thread thread = new Thread(chatter);
          
-            thread.start();
-         }
-      } catch (Exception e) {
-         System.out.println(e);
-      }
-   }
+            			thread.start();
+        		 }
+     		 } catch (Exception e) {
+        		 System.out.println(e);
+      		}
+   	}
    
-   /********************************************************
-   * Chatter class, each one is created for each connection
-   *********************************************************/
-   private class Chatter implements Runnable {
+   	/********************************************************
+   	* Chatter class, each one is created for each connection
+   	*********************************************************/
+   	private class Chatter implements Runnable {
 	   
-      private String name;
-      private Socket socket;
-      private DataInputStream in;
-      private DataOutputStream out;
-      private Chatter connectedChatter;
+		private String name;
+		private Socket socket;
+      		private DataInputStream in;
+      		private DataOutputStream out;
+      		private Chatter connectedChatter;
 	  
-	  private LinkedList<String> messagesToReceive;
+	  	private LinkedList<String> messagesToReceive;
 	   
-      public Chatter(Socket socket) throws Exception {
-         this.socket = socket;
-         in = new DataInputStream(socket.getInputStream());
-         out = new DataOutputStream(socket.getOutputStream());
-		 messagesToReceive = new LinkedList<String>();
-      }
+      		public Chatter(Socket socket) throws Exception {
+         		this.socket = socket;
+         		in = new DataInputStream(socket.getInputStream());
+         		out = new DataOutputStream(socket.getOutputStream());
+			messagesToReceive = new LinkedList<String>();
+     		}
 
-      public synchronized void send(String message) {
-         try {
-            out.writeUTF(message);
-         } catch (Exception e) {
-            System.out.println(e);
-         }
-      }
+      	public synchronized void send(String message) {
+         	try {
+            		out.writeUTF(message);
+         	} catch (Exception e) {
+            		System.out.println(e);
+         	}
+      	}
 	  
-	  public synchronized void receive(String message) {
-		  messagesToReceive.add(message);
-	  }
+	public synchronized void receive(String message) {
+		messagesToReceive.add(message);
+	}
 	  
-	  public synchronized String getMessageFromReceive() {
-		  if (messagesToReceive.isEmpty()) {
-			  return null;
-		  }
-		  String s = messagesToReceive.getFirst();
-		  messagesToReceive.removeFirst();
-		  return s;
-	  }
+	public synchronized String getMessageFromReceive() {
+		if (messagesToReceive.isEmpty()) {
+			return null;
+		}
+		String s = messagesToReceive.getFirst();
+		messagesToReceive.removeFirst();
+		return s;
+	}
 
-      private synchronized void setName(String newName) {
-		 name = newName;
-      }
+      	private synchronized void setName(String newName) {
+		name = newName;
+      	}
 	  
-	  private synchronized void removeConnection() {
-		  connections.remove(this);
-	  }
+	private synchronized void removeConnection() {
+		connections.remove(this);
+	}
 
-      private synchronized String getConnectionsListString() {
-         String s = "";
-         for (Chatter chatter: connections) {
+        private synchronized String getConnectionsListString() {
+		String s = "";
+		for (Chatter chatter: connections) {
 			if (!chatter.toString().equals(name)) {
 				s += (chatter.toString() + ":");
 			}
-         }
-         return s;
-      }
+         	}
+         	return s;
+      	}
 
-      private synchronized Chatter getConnectChatter(String name) {
-         for (Chatter chatter: connections) {
-            if (chatter.toString().equals(name)) {
-               return chatter;
-            }
-         }
-         return null;
-      }
+      	private synchronized Chatter getConnectChatter(String name) {
+         	for (Chatter chatter: connections) {
+            		if (chatter.toString().equals(name)) {
+               			return chatter;
+            		}
+         	}
+         	return null;
+      	}
       
-      public void run() {
+      	public void run() {
          
-         String header = "";
-         String message = "";
+         	String header = "";
+         	String message = "";
 		   
-         try {
-            while(!header.equals("DISCONNECT")) {
-               header = in.readUTF();
-               message = in.readUTF();
+         	try {
+            		while(!header.equals("DISCONNECT")) {
+               			header = in.readUTF();
+               			message = in.readUTF();
                
-               switch (header) {
-                  case "NAME":
-                     setName(message);
-					 System.out.println("New Username: " + message);
-					 send("ACK:NAME");
-                     break;
-                  case "GETLIST":
-                     String s = getConnectionsListString();
-                     System.out.println(s);
-					 send("ACK:LIST");
-                     send(s);
-                     break;
-                  case "CONNECT":
-                     connectedChatter = getConnectChatter(message);
-                     if (connectedChatter == null) {
-                        send("NAK:CONNECT");
-                     } else {
-                        send("ACK:CONNECT");
-                     }
-                     break;
-                  case "MESSAGE":
-                     if (connectedChatter != null) {
+               			switch (header) {
+                  		case "NAME":
+                     			setName(message);
+					System.out.println("New Username: " + message);
+					send("ACK:NAME");
+                     			break;
+                  		case "GETLIST":
+                     			String s = getConnectionsListString();
+                     			System.out.println(s);
+					send("ACK:LIST");
+                     			send(s);
+                    			break;
+                  		case "CONNECT":
+                     			connectedChatter = getConnectChatter(message);
+                     			if (connectedChatter == null) {
+                        			send("NAK:CONNECT");
+                     			} else {
+                        			send("ACK:CONNECT");
+                     			}
+                     			break;
+                  		case "MESSAGE":
+                     			if (connectedChatter != null) {
 						send("ACK:MESSAGE");
 						connectedChatter.receive(name + ":" + message);
-                     } else {
-                        send("NAK:MESSAGE");
-                     }
-                     break;
-                  case "DISCONNECT":
-				     send("ACK:DISCONNECT");
-                     in.close();
-                     out.close();
-                     socket.close();
-					 removeConnection();
-                     break;
-				  case "GETINPUT":
-					 String str = getMessageFromReceive();
-					 if (str == null) {
-						 send("NAK:GETINPUT");
-					 } else {
-						 send("ACK:GETINPUT");
-						 send(str.split(":")[0]);
-						 send(str.substring(str.indexOf(":") + 1));
-					 }
-					 break;
-                  default:
-                     send("NAK:ERROR");
-               }
+                     			} else {
+                        			send("NAK:MESSAGE");
+                     			}
+                    			break;
+                  		case "DISCONNECT":
+				     	send("ACK:DISCONNECT");
+                     			in.close();
+                     			out.close();
+                     			socket.close();
+					removeConnection();
+                    			break;
+				case "GETINPUT":
+					String str = getMessageFromReceive();
+					if (str == null) {
+						send("NAK:GETINPUT");
+					} else {
+						send("ACK:GETINPUT");
+						send(str.split(":")[0]);
+						send(str.substring(str.indexOf(":") + 1));
+					}
+					break;
+                  		default:
+                     			send("NAK:ERROR");
+               			}
                
-            }
-         } catch (Exception e) {
-            System.out.println(e);
-         }
-      }
+            		}
+         	} catch (Exception e) {
+           		 System.out.println(e);
+         	}
+      	}
       
-      public String toString() {
-         return name;
-      }
+      	public String toString() {
+         	return name;
+      	}
 	
    }
 }
