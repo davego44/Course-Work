@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "1057038910828",
+    "firebase_url": "https://familysync-9f6f0.firebaseio.com",
+    "project_id": "familysync-9f6f0",
+    "storage_bucket": "familysync-9f6f0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1057038910828:android:ad30768b81d5a66c",
+        "android_client_info": {
+          "package_name": "com.example.daveg.familysync"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1057038910828-ckfnm1tlfk4sd9cem9gdrf5u1bp3u8pr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzx8tJ-nqyTXqatafnTRXObql-PYQIW_g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1057038910828:android:3c8ebd62d41aee68",
+        "android_client_info": {
+          "package_name": "com.davego44.familysync"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1057038910828-ckfnm1tlfk4sd9cem9gdrf5u1bp3u8pr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzx8tJ-nqyTXqatafnTRXObql-PYQIW_g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -3,4 +3,24 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#111111</color>
+    <color name="colorGrey">#EEEEEE</color>
+
+    <color name="primary">#dcecfc</color>
+    <color name="complementary">#fcedde</color>
+    <color name="yellowSplit">#f5fcde</color>
+    <color name="redSplit">#fcdee6</color>
+
+    <color name="selection">#f5fcde</color>
+    <color name="mainBackground">#dcecfc</color>
+    <color name="myProfileColor">#b54d40</color>
+    <color name="calendarHeader">#b54d40</color>
+    <color name="editTextLine">#808080</color>
+
+    <color name="color1">#98508c</color> <!-- GOOD -->
+    <color name="color2">#ff9933</color> <!-- GOOD -->
+    <color name="color3">#b6a53e</color> <!-- GOOD -->
+    <color name="color4">#3eb6a5</color> <!-- GOOD -->
 </resources>

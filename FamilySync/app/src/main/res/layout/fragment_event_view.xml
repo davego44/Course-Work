@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context="com.davego44.familysync.fragments.EventViewFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textSize="8pt"
+            android:textColor="@color/colorWhite"
+            android:id="@+id/todayDateTextView"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            />
+
+        <ImageButton
+            android:layout_width="52dp"
+            android:layout_height="27dp"
+            android:src="@mipmap/maximize"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="enlarge the day's events"
+            android:id="@+id/maximizeButton"
+            android:background="@null"
+            android:nestedScrollingEnabled="false" />
+
+        <ImageButton
+            android:layout_width="52dp"
+            android:layout_height="27dp"
+            android:src="@mipmap/minimize"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="delarge the day's events"
+            android:id="@+id/minimizeButton"
+            android:background="@null"
+            android:visibility="gone"
+            android:nestedScrollingEnabled="false" />
+
+    </LinearLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/eventListView"
+        android:layout_gravity="center_horizontal" />
+
+    <!--<TextView
+        android:id="@+id/emptyTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="There are no events today"
+        android:visibility="gone" />-->
+
+
+</LinearLayout>

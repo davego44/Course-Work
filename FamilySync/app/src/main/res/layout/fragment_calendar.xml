@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:background="@android:color/white">
+
+<!-- date toolbar -->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="horizontal"
+    android:background="@color/colorWhite">
+
+    <!-- date title -->
+    <Button
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:text="Prev"
+        android:id="@+id/prevButton"/>
+
+    <TextView
+        android:id="@+id/calendar_date_display"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textColor="#222222"
+        android:text="@string/current_date"/>
+
+    <Button
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:text="Next"
+        android:id="@+id/nextButton"/>
+</LinearLayout>
+
+<!-- days header -->
+<LinearLayout
+    android:id="@+id/calendar_header"
+    android:layout_width="match_parent"
+    android:layout_height="35dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:layout_marginBottom="0dp"
+    android:background="@color/calendarHeader">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:textColor="@color/colorWhite"
+        android:text="SUN"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:textColor="@color/colorWhite"
+        android:text="MON"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:textColor="@color/colorWhite"
+        android:text="TUE"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:textColor="@color/colorWhite"
+        android:text="WED"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:textColor="@color/colorWhite"
+        android:text="THU"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:textColor="@color/colorWhite"
+        android:text="FRI"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:textColor="@color/colorWhite"
+        android:text="SAT"/>
+</LinearLayout>
+
+<!-- days view -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/mainBackground">
+
+        <GridView
+            android:id="@+id/calendar_grid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:numColumns="7"
+            android:columnWidth="50dp"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center_horizontal"
+            android:horizontalSpacing="1px"
+            android:verticalSpacing="1px"
+            android:background="@color/colorBlack"
+            android:stretchMode="columnWidth"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>
