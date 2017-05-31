@@ -20,14 +20,14 @@ public class SavedEventAdapter extends ArrayAdapter<Event> {
     private LayoutInflater inflater;
 
     public SavedEventAdapter(Context context, ArrayList<Event> events) {
-        super(context, R.layout.spinner_item_saved_event, events);
+        super(context, R.layout.adapter_saved_event, events);
         inflater = LayoutInflater.from(context);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null)
-            convertView = inflater.inflate(R.layout.spinner_item_saved_event, parent, false);
+            convertView = inflater.inflate(R.layout.adapter_saved_event, parent, false);
         TextView savedEventName = (TextView) convertView.findViewById(R.id.savedEventName);
         Event event = getItem(position);
         savedEventName.setText(event.getName());

@@ -17,6 +17,7 @@ import com.google.firebase.auth.AuthResult;
 
 public class CreateAccountActivity extends BaseActivity {
 
+    //UI element variable declaration
     private EditText nameEditText;
     private EditText emailEditText;
     private EditText passwordEditText;
@@ -81,5 +82,11 @@ public class CreateAccountActivity extends BaseActivity {
                 }
             }
         });
+    }
+
+    public void onBackPressed(View view) {
+        Intent intent = new Intent(CreateAccountActivity.this, SignInActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

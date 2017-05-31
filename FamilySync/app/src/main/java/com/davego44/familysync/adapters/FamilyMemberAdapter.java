@@ -28,7 +28,7 @@ public class FamilyMemberAdapter extends ArrayAdapter<GroupUser> {
     private LayoutInflater inflater;
 
     public FamilyMemberAdapter(Context context, ArrayList<GroupUser> navItems) {
-        super(context, R.layout.list_item_family_member, navItems);
+        super(context, R.layout.adapter_family_member, navItems);
         inflater = LayoutInflater.from(context);
     }
 
@@ -44,7 +44,7 @@ public class FamilyMemberAdapter extends ArrayAdapter<GroupUser> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null)
-            convertView = inflater.inflate(R.layout.list_item_family_member, parent, false);
+            convertView = inflater.inflate(R.layout.adapter_family_member, parent, false);
         GroupUser navItem = getItem(position);
         LinearLayout wholeLayout = (LinearLayout) convertView.findViewById(R.id.wholeLayout);
         ImageView menuItemPicture = (ImageView) convertView.findViewById(R.id.menuItemPicture);

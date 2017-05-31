@@ -26,14 +26,14 @@ public class NavAdapter<T> extends ArrayAdapter<T> {
     private LayoutInflater inflater;
 
     public NavAdapter(Context context, ArrayList<T> navItems) {
-        super(context, R.layout.list_item_nav, navItems);
+        super(context, R.layout.adapter_nav, navItems);
         inflater = LayoutInflater.from(context);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null)
-            convertView = inflater.inflate(R.layout.list_item_nav, parent, false);
+            convertView = inflater.inflate(R.layout.adapter_nav, parent, false);
 
         NavItem navItem = (NavItem) getItem(position);
 

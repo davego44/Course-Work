@@ -19,14 +19,6 @@ import java.util.Calendar;
 import java.util.Comparator;
 import java.util.Date;
 
-/**
- * A class that provides an adapted ArrayAdapter to display each event
- *
- * NOT USED IN ACTUAL PROJECT!!
- *
- * @author David
- * @version 1.0
- */
 public class EventAdapter extends ArrayAdapter<Event> {
 
     private Context mContext;
@@ -35,7 +27,7 @@ public class EventAdapter extends ArrayAdapter<Event> {
     private String userEmail;
 
     public EventAdapter(Context context, ArrayList<Event> events, String userEmail) {
-        super(context, R.layout.list_item_event, events);
+        super(context, R.layout.adapter_event, events);
         inflater = LayoutInflater.from(context);
         mContext = context;
         groupUsers = new ArrayList<>();
@@ -112,7 +104,7 @@ public class EventAdapter extends ArrayAdapter<Event> {
             return new EmptyView(getContext());
 
         if (convertView == null || convertView instanceof EmptyView)
-            convertView = inflater.inflate(R.layout.list_item_event, parent, false);
+            convertView = inflater.inflate(R.layout.adapter_event, parent, false);
 
         TextView eventTimeHour = (TextView) convertView.findViewById(R.id.eventTimeHour);
         TextView eventTimeHourSecond = (TextView) convertView.findViewById(R.id.eventTimeHourSecond);

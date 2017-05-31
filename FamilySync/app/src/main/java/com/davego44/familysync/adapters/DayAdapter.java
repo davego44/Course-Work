@@ -46,7 +46,7 @@ public class DayAdapter extends ArrayAdapter<Date> {
      * @param currentCalendar For getting today's date
      */
     public DayAdapter(Context context, Calendar currentCalendar, String userEmail){
-        super(context, R.layout.grid_item_day, new ArrayList<Date>());
+        super(context, R.layout.adapter_day, new ArrayList<Date>());
         inflater = LayoutInflater.from(context);
         this.currentCalendar = currentCalendar;
         this.userEmail = userEmail;
@@ -159,7 +159,7 @@ public class DayAdapter extends ArrayAdapter<Date> {
         inspectingCal.setTime(date);
 
         if (convertView == null)
-            convertView = inflater.inflate(R.layout.grid_item_day, parent, false);
+            convertView = inflater.inflate(R.layout.adapter_day, parent, false);
 
         if (selectedDate != null) {
             Calendar selectCal = (Calendar) todayCal.clone();

@@ -5,7 +5,35 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="colorAccent">@color/primary</item>
+
+        <!--<item name="colorControlNormal">@color/colorPrimary</item>
+        <item name="colorControlActivated">@color/complementary</item>
+        <item name="colorControlHighlight">@color/complementary</item>-->
+
+        <!--<item name="editTextStyle">@style/EditTextStyle</item>-->
+    </style>
+
+    <style name="EditTextStyleAuth" parent="@android:style/Widget.EditText">
+        <item name="android:background">@drawable/border</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:layout_width">320dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:drawablePadding">5dp</item>
+        <!--<item name="android:textColorHint">@color/complementary</item>-->
+    </style>
+
+    <style name="ButtonStyleAuth" parent="@android:style/Widget.Button">
+        <item name="android:layout_width">200dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+    </style>
+
+    <style name="TextViewStyleHeader" parent="@android:style/Widget.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorWhite</item>
     </style>
 
 </resources>

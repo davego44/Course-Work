@@ -6,6 +6,28 @@
     <string name="sign_in_button">Sign In</string>
     <string name="create_account_button">Create Account</string>
     <string name="name_hint">Enter Name</string>
+    <string name="back_button">Back</string>
+
+    <string name="fragment_calendar_previous_calendar">Prev</string>
+    <string name="fragment_calendar_next_calendar">Next</string>
+    <string name="fragment_calendar_sunday">SUN</string>
+    <string name="fragment_calendar_monday">MON</string>
+    <string name="fragment_calendar_tuesday">TUE</string>
+    <string name="fragment_calendar_wednesday">WED</string>
+    <string name="fragment_calendar_thursday">THU</string>
+    <string name="fragment_calendar_friday">FRI</string>
+    <string name="fragment_calendar_saturday">SAT</string>
+
+    <string name="fragment_event_maximize_content_desc">Maximize the day\'s events</string>
+    <string name="fragment_event_minimize_content_desc">Minimize the day\'s events</string>
+
+    <string name="adapter_nav_icon_content_desc">Navigation icon</string>
+
+    <string name="dialog_manage_add_remove_title">Add/Remove Member</string>
+    <string name="dialog_manage_enter_email">Enter User\s Email Address</string>
+    <string name="dialog_manage_add_button">Add</string>
+    <string name="dialog_manage_remove_button">Remove</string>
+    <string name="dialog_manage_cancel_button">Cancel</string>
 
     <string-array name="colors_array">
         <item>Purple</item>
@@ -43,4 +65,7 @@
 
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
+    <string name="family_member_nav_title">Family</string>
+    <string name="nav_logout_icon_content_desc">Logout Icon</string>
+    <string name="nav_logout">Logout</string>
 </resources>

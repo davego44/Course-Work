@@ -7,61 +7,52 @@
     android:orientation="vertical"
     tools:context="com.davego44.familysync.fragments.EventViewFragment">
 
-    <LinearLayout
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:orientation="horizontal"
+        android:layout_height="45dp"
         android:background="@color/colorPrimary">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
             android:textSize="8pt"
+            android:layout_marginLeft="4dp"
+            android:layout_marginStart="4dp"
             android:textColor="@color/colorWhite"
-            android:id="@+id/todayDateTextView"/>
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            />
+            android:id="@+id/todayDateTextView"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
         <ImageButton
-            android:layout_width="52dp"
-            android:layout_height="27dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:src="@mipmap/maximize"
-            android:layout_gravity="center_vertical"
-            android:contentDescription="enlarge the day's events"
+            android:contentDescription="@string/fragment_event_maximize_content_desc"
             android:id="@+id/maximizeButton"
             android:background="@null"
-            android:nestedScrollingEnabled="false" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
         <ImageButton
-            android:layout_width="52dp"
-            android:layout_height="27dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:src="@mipmap/minimize"
-            android:layout_gravity="center_vertical"
-            android:contentDescription="delarge the day's events"
+            android:contentDescription="@string/fragment_event_minimize_content_desc"
             android:id="@+id/minimizeButton"
             android:background="@null"
             android:visibility="gone"
-            android:nestedScrollingEnabled="false" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
-    </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/eventListView"
         android:layout_gravity="center_horizontal" />
-
-    <!--<TextView
-        android:id="@+id/emptyTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="There are no events today"
-        android:visibility="gone" />-->
-
 
 </LinearLayout>

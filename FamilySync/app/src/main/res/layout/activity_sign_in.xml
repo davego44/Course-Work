@@ -4,47 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/family_background"
     tools:context="com.davego44.familysync.activities.SignInActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/sign_in_welcome"
-        android:id="@+id/welcomeTextView"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" />
-
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
+        style="@style/EditTextStyleAuth"
         android:id="@+id/signInEmailEditText"
+        android:inputType="textEmailAddress"
         android:hint="@string/email_hint"
-        app:layout_constraintTop_toBottomOf="@+id/welcomeTextView"/>
+        android:layout_marginTop="10dp"
+        android:drawableLeft="@mipmap/email"
+        android:drawableStart="@mipmap/email"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/EditTextStyleAuth"
         android:inputType="textPassword"
         android:id="@+id/signInPasswordEditText"
         android:hint="@string/password_hint"
-        app:layout_constraintTop_toBottomOf="@+id/signInEmailEditText" />
+        android:layout_marginTop="5dp"
+        android:drawableLeft="@mipmap/lock"
+        android:drawableStart="@mipmap/lock"
+        app:layout_constraintTop_toBottomOf="@id/signInEmailEditText"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/ButtonStyleAuth"
         android:text="@string/sign_in_button"
         android:id="@+id/signInButton"
         android:onClick="onSignInPressed"
-        app:layout_constraintTop_toBottomOf="@+id/signInPasswordEditText" />
+        android:background="@color/primary"
+        app:layout_constraintTop_toBottomOf="@id/signInPasswordEditText"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/ButtonStyleAuth"
         android:text="@string/create_account_button"
         android:id="@+id/signInCreateAccountButton"
         android:onClick="onCreateAccountPressed"
-        app:layout_constraintTop_toBottomOf="@+id/signInButton" />
+        android:background="@color/complementary"
+        app:layout_constraintTop_toBottomOf="@id/signInButton"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

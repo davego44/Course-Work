@@ -25,6 +25,8 @@ public class SignInActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
+
+
         createInterfaceElements();
         authListener = new FirebaseAuth.AuthStateListener() {
             @Override

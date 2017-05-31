@@ -56,7 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="16sp"
-            android:text="Family"
+            android:text="@string/family_member_nav_title"
             android:layout_marginTop="10dp"
             android:paddingBottom="8dp"
             android:background="@drawable/bottom_border"
@@ -95,13 +95,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:contentDescription="@string/nav_logout_icon_content_desc"
             android:src="@mipmap/logout" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="Logout"/>
+            android:text="@string/nav_logout"/>
 
 
     </LinearLayout>
