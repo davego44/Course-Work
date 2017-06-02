@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.davego44.familysync.activities.AddEventActivity">
+
+    <TextView
+        android:id="@+id/addEventDateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <EditText
+        android:id="@+id/addEventNameEditText"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:inputType="text"
+        android:drawableLeft="@mipmap/name"
+        android:drawableStart="@mipmap/name"
+        android:hint="@string/activity_add_event_hint_name"
+        android:background="@drawable/border"
+        android:layout_marginTop="4dp"
+        app:layout_constraintTop_toBottomOf="@+id/addEventDateTextView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <EditText
+        android:id="@+id/addEventLocationEditText"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:inputType="text"
+        android:drawableLeft="@mipmap/location"
+        android:drawableStart="@mipmap/location"
+        android:hint="@string/activity_add_event_hint_location"
+        android:background="@drawable/border"
+        app:layout_constraintTop_toBottomOf="@+id/addEventNameEditText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <EditText
+        android:id="@+id/addEventNotesEditText"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:inputType="text"
+        android:drawableLeft="@mipmap/note"
+        android:drawableStart="@mipmap/note"
+        android:hint="@string/activity_add_event_hint_notes"
+        android:background="@drawable/border"
+        app:layout_constraintTop_toBottomOf="@+id/addEventLocationEditText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/addEventTimeTextView"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:drawableLeft="@mipmap/time"
+        android:drawableStart="@mipmap/time"
+        android:background="@drawable/border"
+        android:text="@string/activity_add_event_time"
+        android:textSize="18sp"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toBottomOf="@+id/addEventNotesEditText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/addEventDataTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/activity_add_event_data_title"
+        android:textSize="18sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        app:layout_constraintTop_toBottomOf="@+id/addEventTimeTextView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/addEventDataExplainTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/activity_add_event_data_explain"
+        android:textSize="12sp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        app:layout_constraintTop_toBottomOf="@+id/addEventDataTextView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp"
+        app:layout_constraintTop_toBottomOf="@+id/addEventDataExplainTextView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <Spinner
+            android:id="@+id/addEventLoadSpinner"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/border"/>
+
+        <Button
+            android:id="@+id/addEventDeleteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/complementary"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:padding="5dp"
+            android:text="@string/activity_add_event_data_delete"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/activity_add_event_data_or"
+            android:gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"/>
+
+        <Button
+            android:id="@+id/addEventSaveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/primary"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp"
+            android:text="@string/activity_add_event_data_save"/>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

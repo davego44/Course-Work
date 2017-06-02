@@ -5,7 +5,7 @@
     android:layout_height="45dp"
     android:padding="2dp"
     android:id="@+id/dayItemLayout"
-    android:background="@color/mainBackground">
+    android:background="@color/primary">
 
     <LinearLayout
         android:layout_width="wrap_content"
