@@ -19,9 +19,11 @@ import java.util.Calendar;
 import java.util.Comparator;
 import java.util.Date;
 
+/**
+ * Event adapter for the events view
+ */
 public class EventAdapter extends ArrayAdapter<Event> {
 
-    private Context mContext;
     private LayoutInflater inflater;
     private ArrayList<GroupUser> groupUsers;
     private String userEmail;
@@ -29,7 +31,6 @@ public class EventAdapter extends ArrayAdapter<Event> {
     public EventAdapter(Context context, ArrayList<Event> events, String userEmail) {
         super(context, R.layout.adapter_event, events);
         inflater = LayoutInflater.from(context);
-        mContext = context;
         groupUsers = new ArrayList<>();
         this.userEmail = userEmail;
     }
@@ -82,10 +83,13 @@ public class EventAdapter extends ArrayAdapter<Event> {
         });
     }
 
-    public void clearGroupUsers() {
-        groupUsers.clear();
-    }
-
+    /**
+     * Handles the creation of the view
+     * @param position Position of the item
+     * @param convertView The view of the item
+     * @param parent The parent of the view
+     * @return The new view
+     */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 

@@ -4,6 +4,9 @@ package com.davego44.familysync.firebase;
  * Created by daveg on 5/27/2017.
  */
 
+/**
+ * Basic Firebase object for each group member in a group
+ */
 public class GroupUser {
     String email;
     String name;

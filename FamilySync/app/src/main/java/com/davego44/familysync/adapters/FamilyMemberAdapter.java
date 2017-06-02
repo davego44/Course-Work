@@ -16,9 +16,7 @@ import com.davego44.familysync.helper.Utilities;
 import java.util.ArrayList;
 
 /**
- * A class that provides an adapted ArrayAdapter to display each event
- *
- * NOT USED IN ACTUAL PROJECT!!
+ * A class that provides an adapted ArrayAdapter to display each family member in the group
  *
  * @author David
  * @version 1.0
@@ -41,6 +39,13 @@ public class FamilyMemberAdapter extends ArrayAdapter<GroupUser> {
         }
     }
 
+    /**
+     * Handles the creation of the view
+     * @param position Position of the item
+     * @param convertView The view of the item
+     * @param parent The parent of the view
+     * @return The new view
+     */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null)

@@ -9,6 +9,9 @@ import com.davego44.familysync.R;
  * Created by daveg on 5/25/2017.
  */
 
+/**
+ * Handles generic utilities
+ */
 public class Utilities {
     public static String encodeEmail(String email) {
         return email.replace(".", ",");

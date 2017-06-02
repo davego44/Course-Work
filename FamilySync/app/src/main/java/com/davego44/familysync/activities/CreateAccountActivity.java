@@ -22,6 +22,10 @@ public class CreateAccountActivity extends BaseActivity {
     private EditText emailEditText;
     private EditText passwordEditText;
 
+    /**
+     * Initilizes the UI Elements, and gets username and password data from SignInActivity (if any)
+     * @param savedInstanceState Generic activity data
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,12 +40,19 @@ public class CreateAccountActivity extends BaseActivity {
         }
     }
 
+    /**
+     * Initlializes the UI Elements
+     */
     private void createInterfaceElements() {
         nameEditText = (EditText) findViewById(R.id.nameEditText);
         emailEditText = (EditText) findViewById(R.id.emailEditText);
         passwordEditText = (EditText) findViewById(R.id.passwordEditText);
     }
 
+    /**
+     * Handles Create Account button
+     * @param view The view that did the call
+     */
     public void onCreateAccountPressed(View view) {
         final String name = nameEditText.getText().toString();
         final String email = emailEditText.getText().toString();
@@ -84,6 +95,10 @@ public class CreateAccountActivity extends BaseActivity {
         });
     }
 
+    /**
+     * Handles the Back button
+     * @param view The view that did the call
+     */
     public void onBackPressed(View view) {
         Intent intent = new Intent(CreateAccountActivity.this, SignInActivity.class);
         startActivity(intent);

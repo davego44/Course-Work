@@ -32,6 +32,14 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * Custom Events View Fragment
+ *
+ * A fragment that displays a list of events of selected day
+ *
+ * @author David
+ * @version 1.0
+ */
 public class EventViewFragment extends Fragment {
 
     private EventAdapter eventAdapter;
@@ -41,7 +49,6 @@ public class EventViewFragment extends Fragment {
     private Calendar selectedDateCalendar;
     private Calendar eventsCalendar;
     private Date eventDate;
-    private ListView eventListView;
     private ImageButton maximizeButton;
     private ImageButton minimizeButton;
     private TextView todayDateTextView;
@@ -49,14 +56,15 @@ public class EventViewFragment extends Fragment {
     private DatabaseReference myEventUserRef;
     private DatabaseReference myGroupRef;
     private String email;
-    private ArrayList<GroupUser> groupUsers;
 
+    /**
+     * Initializes the UI Elements and other data
+     */
     public EventViewFragment(){
         selectedDateCalendar = (Calendar) Calendar.getInstance().clone();
         eventsCalendar = (Calendar) selectedDateCalendar.clone();
         groupsToRemove = new ArrayList<>();
         eventDate = new Date();
-        groupUsers = new ArrayList<>();
     }
 
     @Override
@@ -66,8 +74,8 @@ public class EventViewFragment extends Fragment {
 
         eventAdapter = new EventAdapter(view.getContext(), new ArrayList<Event>(), email);
 
-        eventListView = (ListView) view.findViewById(R.id.eventListView);
-        eventListView.setEmptyView(new EmptyView(getContext()));    //view.findViewById(R.id.emptyTextView));
+        ListView eventListView = (ListView) view.findViewById(R.id.eventListView);
+        eventListView.setEmptyView(new EmptyView(getContext()));
         eventListView.setAdapter(eventAdapter);
 
         eventListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

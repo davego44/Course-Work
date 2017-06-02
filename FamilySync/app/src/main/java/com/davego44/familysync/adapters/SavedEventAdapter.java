@@ -16,6 +16,9 @@ import java.util.ArrayList;
  * Created by daveg on 5/27/2017.
  */
 
+/**
+ * This class handles how each item in the spinner is displayed
+ */
 public class SavedEventAdapter extends ArrayAdapter<Event> {
     private LayoutInflater inflater;
 
@@ -24,6 +27,13 @@ public class SavedEventAdapter extends ArrayAdapter<Event> {
         inflater = LayoutInflater.from(context);
     }
 
+    /**
+     * Handles the creation of the view
+     * @param position Position of the item
+     * @param convertView The view of the item
+     * @param parent The parent of the view
+     * @return The new view
+     */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null)

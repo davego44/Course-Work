@@ -14,9 +14,8 @@ import com.davego44.familysync.R;
 import java.util.ArrayList;
 
 /**
- * A class that provides an adapted ArrayAdapter to display each event
- *
- * NOT USED IN ACTUAL PROJECT!!
+ * A class that provides an adapted ArrayAdapter to display each navigation item in the
+ * drawer layout
  *
  * @author David
  * @version 1.0
@@ -30,6 +29,13 @@ public class NavAdapter<T> extends ArrayAdapter<T> {
         inflater = LayoutInflater.from(context);
     }
 
+    /**
+     * Handles the creation of the view
+     * @param position Position of the item
+     * @param convertView The view of the item
+     * @param parent The parent of the view
+     * @return The new view
+     */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null)

@@ -41,23 +41,24 @@ public class CalendarViewerActivity extends BaseActivity {
     private ValueEventListener valueEventListener;
     private GroupUser groupUser;
 
+    /**
+     * Creates the drawer menu options and does general setup
+     * @param savedInstanceState Generic activity data
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar_viewer);
         groupUser = new GroupUser();
         peopleInMyGroupRef = baseFirebaseRef.child(Constants.Firebase.USERS).child(baseEncodedEmail).child(Constants.Firebase.GROUP);
-
         ListView navListView = (ListView) findViewById(R.id.navListView);
         NavAdapter<NavItem> navAdapter = new NavAdapter<NavItem>(CalendarViewerActivity.this, new ArrayList<NavItem>());
         if (navListView != null) {
             navListView.setAdapter(navAdapter);
-
             NavItem myProfileNavItem = new NavItem(R.mipmap.person, "My Profile");
             NavItem settingsNavItem = new NavItem(R.mipmap.settings, "Settings");
             navAdapter.add(myProfileNavItem);
             navAdapter.add(settingsNavItem);
-
             navListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -78,7 +79,6 @@ public class CalendarViewerActivity extends BaseActivity {
                 }
             });
         }
-
         ListView manageListView = (ListView) findViewById(R.id.manageListView);
         NavAdapter<NavItem> manageNavAdapter = new NavAdapter<NavItem>(CalendarViewerActivity.this, new ArrayList<NavItem>());
         if (manageListView != null) {
@@ -95,7 +95,6 @@ public class CalendarViewerActivity extends BaseActivity {
                 }
             });
         }
-
         ListView familyMembersListView = (ListView) findViewById(R.id.familyMembersListView);
         familyMemberAdapter = new FamilyMemberAdapter(CalendarViewerActivity.this, new ArrayList<GroupUser>());
         if (familyMembersListView != null) {
@@ -134,33 +133,10 @@ public class CalendarViewerActivity extends BaseActivity {
 
                         }
                     });
-
-                    //changedSelected(groupUser);
-                    //familyMemberAdapter.notifyDataSetChanged();
                 }
             });
         }
-
         drawerlayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        /*drawerToggle = new ActionBarDrawerToggle(this, drawerlayout, R.string.drawer_open, R.string.drawer_close) {
-
-            @Override
-            public void onDrawerClosed(View drawerView) {
-                super.onDrawerClosed(drawerView);
-                MenuItem item = menu.findItem(R.id.action_arrow);
-                item.setIcon(R.mipmap.left_arrow_icon);
-            }
-
-            @Override
-            public void onDrawerOpened(View drawerView) {
-                super.onDrawerOpened(drawerView);
-                MenuItem item = menu.findItem(R.id.action_arrow);
-                item.setIcon(R.mipmap.right_arrow_icon);
-            }
-
-        };
-        drawerlayout.addDrawerListener(drawerToggle);*/
-
         LinearLayout logoutView = (LinearLayout) findViewById(R.id.logoutView);
         if (logoutView != null) {
             logoutView.setOnClickListener(new View.OnClickListener() {
@@ -170,7 +146,6 @@ public class CalendarViewerActivity extends BaseActivity {
                 }
             });
         }
-
         if (savedInstanceState == null) {
             CalendarFragment calendarFragment = new CalendarFragment();
             EventViewFragment eventViewFragment = new EventViewFragment();
@@ -179,18 +154,28 @@ public class CalendarViewerActivity extends BaseActivity {
             getSupportFragmentManager().beginTransaction().add(R.id.fragment_top_container, calendarFragment).commit();
             getSupportFragmentManager().beginTransaction().add(R.id.fragment_bottom_container, eventViewFragment).commit();
         }
-
         setupFirebaseListener();
     }
 
+    /**
+     * Sets the event views date
+     * @param date The date
+     */
     public void setBottomFragmentDate(Date date) {
         ((EventViewFragment)getSupportFragmentManager().findFragmentById(R.id.fragment_bottom_container)).setDate(date);
     }
 
+    /**
+     * Gets the event views data
+     * @return The date
+     */
     public Date getBottomFragmentDate() {
         return ((EventViewFragment)getSupportFragmentManager().findFragmentById(R.id.fragment_bottom_container)).getDate();
     }
 
+    /**
+     * Expand or minimize the event views
+     */
     public void zoomInOut() {
         CalendarFragment calendarFragment = (CalendarFragment)getSupportFragmentManager().findFragmentById(R.id.fragment_top_container);
         if (calendarFragment.isHidden()) {
@@ -200,6 +185,9 @@ public class CalendarViewerActivity extends BaseActivity {
         }
     }
 
+    /**
+     * Sets up the Firebase listener
+     */
     private void setupFirebaseListener() {
         childEventListener = peopleInMyGroupRef.addChildEventListener(new ChildEventListener() {
             @Override
@@ -207,23 +195,19 @@ public class CalendarViewerActivity extends BaseActivity {
                 GroupUser groupUser = dataSnapshot.getValue(GroupUser.class);
                 familyMemberAdapter.add(groupUser);
             }
-
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
 
             }
-
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
                 GroupUser groupUser = dataSnapshot.getValue(GroupUser.class);
                 familyMemberAdapter.removeGroupUser(groupUser);
             }
-
             @Override
             public void onChildMoved(DataSnapshot dataSnapshot, String s) {
 
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
@@ -274,10 +258,6 @@ public class CalendarViewerActivity extends BaseActivity {
                     //item.setIcon(R.mipmap.right_arrow_icon);
                 }
                 return true;
-
-            /*case R.id.action_log_out:
-                bFirebaseAuth.signOut();
-                return true;*/
         }
         return super.onOptionsItemSelected(item);
     }

@@ -15,18 +15,25 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+/**
+ * First activity that handles login with the Firebase Auth system
+ */
 public class SignInActivity extends BaseActivity {
 
+    //UI Elements
     private EditText signInEmailEditText;
     private EditText signInPasswordEditText;
     private FirebaseAuth.AuthStateListener authListener;
 
+    /**
+     * Initializes the UI Elements, sets up the Firebase listener data, and gets email and password
+     * from the Create Account (if any)
+     * @param savedInstanceState Generic activity data
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
-
-
         createInterfaceElements();
         authListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -48,12 +55,19 @@ public class SignInActivity extends BaseActivity {
         }
     }
 
+    /**
+     * Initializes the UI Elements
+     */
     private void createInterfaceElements()
     {
         signInEmailEditText = (EditText) findViewById(R.id.signInEmailEditText);
         signInPasswordEditText = (EditText) findViewById(R.id.signInPasswordEditText);
     }
 
+    /**
+     * Handles the Sign In Button
+     * @param view The view that did the call
+     */
     public void onSignInPressed(View view) {
         String email = signInEmailEditText.getText().toString();
         String password = signInPasswordEditText.getText().toString();
@@ -78,6 +92,10 @@ public class SignInActivity extends BaseActivity {
         });
     }
 
+    /**
+     * Handles the Create Account Button
+     * @param view The view that did the call
+     */
     public void onCreateAccountPressed(View view) {
         String email = signInEmailEditText.getText().toString();
         String password = signInPasswordEditText.getText().toString();
@@ -87,6 +105,9 @@ public class SignInActivity extends BaseActivity {
         startActivity(intent);
     }
 
+    /**
+     * Method that runs when the activity is finished
+     */
     @Override
     public void onDestroy() {
         super.onDestroy();

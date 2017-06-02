@@ -4,6 +4,9 @@ package com.davego44.familysync.helper;
  * Created by daveg on 5/25/2017.
  */
 
+/**
+ * Constants used throughout the project java files
+ */
 public abstract class Constants {
     public static class Errors {
         public static String INVALID_NAME = "Please enter a valid name";

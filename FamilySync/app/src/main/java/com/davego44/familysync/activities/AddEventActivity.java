@@ -33,6 +33,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * Activity that handles adding events to the calendar
+ */
 public class AddEventActivity extends BaseActivity {
 
     //Time for event
@@ -301,7 +304,7 @@ public class AddEventActivity extends BaseActivity {
     }
 
     /**
-     * Handles the destroying of the activity
+     * Method that runs when the activity is finished
      */
     @Override
     public void onDestroy() {

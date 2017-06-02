@@ -9,6 +9,9 @@ import java.util.List;
  * Created by daveg on 5/26/2017.
  */
 
+/**
+ * Basic Firebase object for each user account data
+ */
 public class User {
     String name;
     String email;

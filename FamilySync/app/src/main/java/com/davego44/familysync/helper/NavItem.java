@@ -5,6 +5,10 @@ import android.graphics.drawable.Drawable;
 /**
  * Created by daveg on 11/7/2016.
  */
+
+/**
+ * Each navigation item that goes in the drawer layout
+ */
 public class NavItem {
 
     private int picture;

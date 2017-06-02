@@ -29,9 +29,9 @@ import java.util.Date;
 import java.util.Locale;
 
 /**
- * Custom Calendar View
+ * Custom Calendar Fragment
  *
- * A view that displays a calendar
+ * A fragment that displays a calendar
  *
  * @author David
  * @version 1.0

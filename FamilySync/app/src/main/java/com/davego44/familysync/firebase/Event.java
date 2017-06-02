@@ -4,6 +4,9 @@ package com.davego44.familysync.firebase;
  * Created by daveg on 5/26/2017.
  */
 
+/**
+ * Basic Firebase object for each calendar event
+ */
 public class Event {
     String name;
     String message;
