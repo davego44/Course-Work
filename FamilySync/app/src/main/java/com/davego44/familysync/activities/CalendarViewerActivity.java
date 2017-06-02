@@ -1,5 +1,6 @@
 package com.davego44.familysync.activities;
 
+import android.content.Intent;
 import android.support.v4.app.NavUtils;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -12,14 +13,12 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.davego44.familysync.dialogs.AddEventDialog;
 import com.davego44.familysync.fragments.CalendarFragment;
 import com.davego44.familysync.helper.Constants;
 import com.davego44.familysync.firebase.GroupUser;
 import com.davego44.familysync.fragments.EventViewFragment;
 import com.davego44.familysync.adapters.FamilyMemberAdapter;
 import com.davego44.familysync.dialogs.GroupDialog;
-import com.davego44.familysync.firebase.GroupUser;
 import com.davego44.familysync.adapters.NavAdapter;
 import com.davego44.familysync.helper.NavItem;
 import com.davego44.familysync.R;
@@ -35,7 +34,6 @@ import java.util.Iterator;
 
 public class CalendarViewerActivity extends BaseActivity {
 
-    private AddEventDialog dialog;
     private FamilyMemberAdapter familyMemberAdapter;
     private DrawerLayout drawerlayout;
     private DatabaseReference peopleInMyGroupRef;
@@ -48,10 +46,7 @@ public class CalendarViewerActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar_viewer);
         groupUser = new GroupUser();
-        DatabaseReference myEventsRef = baseFirebaseRef.child(Constants.Firebase.EVENTS_USERS).child(baseEncodedEmail);
         peopleInMyGroupRef = baseFirebaseRef.child(Constants.Firebase.USERS).child(baseEncodedEmail).child(Constants.Firebase.GROUP);
-        dialog = new AddEventDialog(CalendarViewerActivity.this, myEventsRef,
-                baseFirebaseRef.child(Constants.Firebase.USERS).child(baseEncodedEmail).child(Constants.Firebase.SAVED_EVENTS), baseEncodedEmail);
 
         ListView navListView = (ListView) findViewById(R.id.navListView);
         NavAdapter<NavItem> navAdapter = new NavAdapter<NavItem>(CalendarViewerActivity.this, new ArrayList<NavItem>());
@@ -261,7 +256,9 @@ public class CalendarViewerActivity extends BaseActivity {
                 return true;
 
             case R.id.action_add_event:
-                dialog.show(getBottomFragmentDate());
+                Intent intent = new Intent(CalendarViewerActivity.this, AddEventActivity.class);
+                intent.putExtra(Constants.Intent.DATE, getBottomFragmentDate().getTime());
+                startActivity(intent);
                 return true;
 
             case R.id.action_search:
@@ -290,10 +287,8 @@ public class CalendarViewerActivity extends BaseActivity {
      */
     @Override
     public void onDestroy() {
-        //drawerlayout.removeDrawerListener(drawerToggle);
         if (childEventListener != null)
             peopleInMyGroupRef.removeEventListener(childEventListener);
-        dialog.destroy();
         super.onDestroy();
     }
 }

@@ -21,9 +21,4 @@
         android:title="Open Menu"
         app:showAsAction="ifRoom"/>
 
-    <!--<item
-        android:id="@+id/action_log_out"
-        android:title="@string/action_log_out"
-        app:showAsAction="never"/>-->
-
 </menu>

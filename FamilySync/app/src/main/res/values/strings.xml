@@ -8,6 +8,17 @@
     <string name="name_hint">Enter Name</string>
     <string name="back_button">Back</string>
 
+    <string name="activity_add_event_title">Add an Event</string>
+    <string name="activity_add_event_hint_name">Enter Name</string>
+    <string name="activity_add_event_hint_location">Enter Location</string>
+    <string name="activity_add_event_hint_notes">Enter Notes</string>
+    <string name="activity_add_event_time">Select Time</string>
+    <string name="activity_add_event_data_title">Load/Save Event Data</string>
+    <string name="activity_add_event_data_explain">Save event data for making adding events in the future easier</string>
+    <string name="activity_add_event_data_delete">Delete Selected</string>
+    <string name="activity_add_event_data_or">OR</string>
+    <string name="activity_add_event_data_save">Save Data</string>
+
     <string name="fragment_calendar_previous_calendar">Prev</string>
     <string name="fragment_calendar_next_calendar">Next</string>
     <string name="fragment_calendar_sunday">SUN</string>
@@ -28,6 +39,10 @@
     <string name="dialog_manage_add_button">Add</string>
     <string name="dialog_manage_remove_button">Remove</string>
     <string name="dialog_manage_cancel_button">Cancel</string>
+
+    <string name="dialog_delete_event_title">Delete this event?</string>
+    <string name="dialog_delete_event_cancel">Cancel</string>
+    <string name="dialog_delete_event_confirm">Confirm</string>
 
     <string-array name="colors_array">
         <item>Purple</item>
@@ -55,6 +70,7 @@
     <string name="current_date">Current Date</string>
     <string name="back_to_month">Back to month</string>
 
+    <string name="action_bar_add_event">Add Event</string>
 
     <string name="add_event">Add an Event</string>
     <string name="action_add_event">action_add_event</string>

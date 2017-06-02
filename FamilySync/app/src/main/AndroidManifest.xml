@@ -14,11 +14,11 @@
         <activity android:name=".activities.SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.CalendarViewerActivity"></activity>
+        <activity android:name=".activities.CalendarViewerActivity" />
+        <activity android:name=".activities.AddEventActivity" android:parentActivityName=".activities.CalendarViewerActivity"/>
     </application>
 
 </manifest>

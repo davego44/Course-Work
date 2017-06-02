@@ -21,5 +21,10 @@ public abstract class Constants {
     public static class Intent {
         public static String EMAIL = "INTENT_EMAIL";
         public static String PASSWORD = "INTENT_PASSWORD";
+        public static String DATE = "INTENT_DATE";
+    }
+
+    public static class Spinner {
+        public static String DEFAULT_NAME = "Select Event";
     }
 }
