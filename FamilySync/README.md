@@ -1,5 +1,7 @@
 # FamilySync
 
-A calendar application that contains many features:
+A calendar application that contains many featuressa
 
-# Live Syncing Using Firebase
+# Screenshots
+![SignIn Screen](/FamilySync/screenshots/FamilySync_SignIn.JPG?raw=true "SignIn Screen")
+![Main Screen](/FamilySync/screenshots/FamilySync_Main.JPG?raw=true "Main Screen")
