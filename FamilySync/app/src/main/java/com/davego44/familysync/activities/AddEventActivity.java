@@ -91,7 +91,7 @@ public class AddEventActivity extends BaseActivity {
     }
 
     /**
-     * Initializes the UI Elements
+     * Initializes the UI Elements for the activity
      */
     private void initializeUIElements() {
         dateTextView = (TextView) findViewById(R.id.addEventDateTextView);
