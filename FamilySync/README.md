@@ -1,12 +1,12 @@
 # FamilySync
 
 A calendar application that contains many features such as:
-*FireBase Database Live Syncing
-  *Sync instantly with everyone in your family
-*Save Event Information to Re-Use
-  *For events that happen irregularly
-*Simple Look
-  *Avoid all the clutter
+* FireBase Database Live Syncing
+  * Sync instantly with everyone in your family
+* Save Event Information to Re-Use
+  * For events that happen irregularly
+* Simple Look
+  * Avoid all the clutter
 
 # Screenshots
 ![SignIn Screen](/FamilySync/screenshots/FamilySync_SignIn.JPG?raw=true "SignIn Screen")
