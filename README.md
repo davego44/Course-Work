@@ -6,4 +6,6 @@ Human Computer Interaction: Contains the design document for FamilySync. As a pa
 
 Network and Communcations: Contains files created by me during my Network and Communications class.
 
+Operating Systems: Contains some files created by me during my Operating Systems class.
+
 More course work has yet to be uploaded.
