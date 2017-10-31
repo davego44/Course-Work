@@ -1,0 +1,21 @@
+h1.title {
+	padding: 5px;
+	margin: 5px;
+}
+
+.center-container {
+	padding: 0;
+	min-width: 800px;
+}
+
+.center-page-h {
+	margin: 0 10%;
+}
+
+.rm-margin-top {
+	margin-top: -10px;
+}
+
+.navbar {
+	margin-bottom: 5px;
+}
