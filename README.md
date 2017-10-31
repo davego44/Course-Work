@@ -8,7 +8,7 @@ Network and Communcations: Contains files created by me during my Network and Co
 
 Operating Systems: Contains some files created by me during my Operating Systems class.
 
-Web Engineering II: Contains Web II files created by me. Current only has my bank website project.
+Web Engineering II: Contains Web II files created by me. Currently only has my bank website project.
 
 Personal: Contains some code I completed for practice.
 
